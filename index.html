@@ -3,446 +3,842 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>九州海岸旅行 2026 · V5 高级版</title>
+<title>九州海岸旅行 2026 · 优化版</title>
 <meta name="theme-color" content="#0f172a">
 <style>
 :root{
-  --bg:#edf3ff;--bg2:#f8fbff;--card:#ffffff;--soft:#f4f8ff;--line:#dbe7fb;--text:#12213d;--muted:#677791;
-  --blue:#2d64ff;--indigo:#193f99;--cyan:#11b3da;--green:#0f9c76;--orange:#ff8c3b;--yellow:#ffb52e;--red:#e25757;
-  --shadow:0 18px 50px rgba(20,40,90,.11);--radius:24px;--radius2:18px;
+  --bg:#eef4fb;
+  --bg2:#f8fbff;
+  --card:#ffffff;
+  --card-soft:#f7faff;
+  --line:#dce7f5;
+  --text:#142033;
+  --muted:#66758f;
+  --blue:#2d64ff;
+  --blue-deep:#153e9f;
+  --cyan:#00a8d6;
+  --green:#118a6f;
+  --orange:#eb6a2c;
+  --red:#cf4a4a;
+  --shadow:0 18px 45px rgba(22,42,86,.09);
+  --radius:22px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;color:var(--text);background:linear-gradient(180deg,#edf4ff 0%,#f8fbff 45%,#f3f8ff 100%);}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1180px;margin:0 auto;padding:0 16px 96px;}
-.hero{position:relative;overflow:hidden;margin:14px auto 14px;background:linear-gradient(135deg,#0d1f45 0%,#143772 46%,#2256b5 100%);color:#fff;border-radius:30px;box-shadow:0 28px 65px rgba(17,41,92,.25);padding:18px 18px 22px;}
-.hero:before,.hero:after{content:"";position:absolute;border-radius:999px;filter:blur(4px);opacity:.35}
-.hero:before{width:280px;height:280px;right:-80px;top:-110px;background:radial-gradient(circle,#56c8ff 0,rgba(86,200,255,0) 70%)}
-.hero:after{width:260px;height:260px;left:-100px;bottom:-160px;background:radial-gradient(circle,#5c86ff 0,rgba(92,134,255,0) 70%)}
-.statusbar{display:flex;justify-content:space-between;align-items:center;font-size:12px;opacity:.92;position:relative;z-index:1}
-.status-left,.status-right{display:flex;gap:8px;align-items:center}
-.pill{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.12);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.14);font-size:12px;}
-.hero-body{position:relative;z-index:1;padding-top:14px}
-.app-kicker{font-size:12px;letter-spacing:.14em;opacity:.8;text-transform:uppercase;margin-bottom:8px}
-.hero h1{margin:0;font-size:clamp(32px,5vw,48px);line-height:1.06}
-.sub{margin-top:10px;font-size:14px;line-height:1.7;color:rgba(255,255,255,.86);max-width:800px}
-.route-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.route-pill{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14);font-size:12px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px;position:relative;z-index:1}
-.stat{background:rgba(255,255,255,.10);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:16px 14px;}
-.stat b{display:block;font-size:24px;line-height:1.15;margin-bottom:5px}
-.stat span{font-size:12px;color:rgba(255,255,255,.85)}
-.quick-actions{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:16px 0 10px}
-.icon-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:14px 12px;box-shadow:var(--shadow);text-align:center}
-.icon-card .ico{font-size:22px;margin-bottom:8px;display:block}
-.icon-card b{display:block;font-size:14px}
-.icon-card span{display:block;font-size:11px;color:var(--muted);margin-top:4px}
-.section{margin-top:18px}
-.section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:12px;padding:0 4px}
-.section-head h2{margin:0;font-size:22px}
-.section-head span{font-size:12px;color:var(--muted)}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at top right, rgba(45,100,255,.11), transparent 24%),
+    radial-gradient(circle at left top, rgba(0,168,214,.08), transparent 18%),
+    linear-gradient(180deg,#edf4fc 0%,#f7fbff 38%,#eff6fb 100%);
+  line-height:1.6;
+}
+img{max-width:100%}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 16px}
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(135deg, rgba(10,20,42,.95), rgba(20,54,100,.93) 55%, rgba(0,108,143,.88)),
+    linear-gradient(180deg,#19305e,#1a3b76);
+  color:#fff;
+  padding:26px 0 30px;
+  border-radius:0 0 28px 28px;
+  box-shadow:0 25px 55px rgba(8,22,50,.18);
+}
+.hero:before,.hero:after{
+  content:"";position:absolute;border-radius:999px;filter:blur(10px);opacity:.3
+}
+.hero:before{width:220px;height:220px;right:-70px;top:-45px;background:#5de1ff}
+.hero:after{width:180px;height:180px;left:-60px;bottom:-55px;background:#4d8fff}
+.topline{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#d8e5ff}
+.title-row{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-top:6px}
+.hero h1{font-size:36px;line-height:1.1;margin:0 0 8px}
+.subtitle{color:#d6e3f9;font-size:14px;max-width:760px}
+.countdown{display:inline-flex;align-items:center;gap:8px;margin-top:10px;padding:10px 14px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:999px;font-size:13px;color:#f2f6ff}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.hero-btn{padding:10px 14px;border-radius:14px;background:#fff;color:#153869;font-weight:700;font-size:13px;box-shadow:0 10px 24px rgba(8,22,50,.15)}
+.hero-btn.secondary{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.18);box-shadow:none}
+.hero-grid{display:grid;grid-template-columns:1.25fr .9fr;gap:16px;margin-top:20px}
+.glass-card{
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:24px;
+  padding:18px;
+  backdrop-filter:blur(14px);
+}
+.quick-route{display:flex;gap:8px;flex-wrap:wrap}
+.route-pill{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.12);font-size:12px;color:#edf4ff;border:1px solid rgba(255,255,255,.12)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stat{padding:14px;background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.14);border-radius:18px}
+.stat b{display:block;font-size:22px;line-height:1.1}
+.stat span{display:block;font-size:12px;color:#d7e2f7;margin-top:4px}
+.nav-shell{position:sticky;top:0;z-index:20;padding:12px 0 0;background:linear-gradient(180deg,rgba(239,244,251,.92),rgba(239,244,251,.8) 75%,transparent);backdrop-filter:blur(10px)}
+.nav{
+  overflow:auto;white-space:nowrap;border-radius:16px;background:rgba(255,255,255,.88);
+  border:1px solid rgba(210,224,241,.9);box-shadow:0 8px 24px rgba(22,42,86,.06);
+}
+.nav a{display:inline-flex;align-items:center;gap:6px;padding:13px 14px;font-size:13px;font-weight:700;color:#4f607a}
+.nav a:hover{color:#1848a0}
+main{padding:14px 0 92px}
+.section{margin-top:22px}
+.section-title{display:flex;align-items:center;gap:10px;margin:0 0 12px;padding-left:4px}
+.section-title h2{margin:0;font-size:23px}
+.section-title .hint{font-size:12px;color:var(--muted)}
+.card{
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(217,228,241,.95);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px;
+}
+.card + .card{margin-top:12px}
 .grid{display:grid;gap:12px}
-.grid.main{grid-template-columns:1.15fr .85fr}
-.card{background:var(--card);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);overflow:hidden}
-.card.pad{padding:16px}
-.card-head{padding:16px 16px 10px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.card-head h3{margin:0;font-size:18px}
-.card-head p{margin:5px 0 0;color:var(--muted);font-size:12px;line-height:1.55}
-.tag{display:inline-flex;align-items:center;gap:6px;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:700;background:#edf4ff;color:var(--indigo);border:1px solid #d9e6ff}
-.big-count{padding:0 16px 18px;display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
-.big-count .num{font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-.02em;color:var(--indigo)}
-.big-count .caption{font-size:13px;color:var(--muted)}
-.progress{height:10px;border-radius:999px;background:#edf3ff;overflow:hidden;margin:0 16px 16px}
-.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--blue));width:0%}
-.today-card{padding:0 16px 18px}
-.today-top{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
-.today-title{font-size:24px;font-weight:800;color:var(--text)}
-.today-sub{margin-top:4px;color:var(--muted);font-size:13px}
-.timeline-mini{margin-top:14px;display:grid;gap:10px}
-.mini-row{display:grid;grid-template-columns:84px 1fr;gap:10px;align-items:start;padding:11px 12px;background:var(--soft);border:1px solid #e5eefc;border-radius:18px}
-.mini-time{font-weight:800;color:var(--indigo);font-size:13px}
-.mini-title{font-weight:700;font-size:14px}
-.mini-desc{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.5}
-.hscroll{display:flex;gap:12px;overflow:auto;padding:2px 2px 6px;scroll-snap-type:x proximity}
-.hscroll::-webkit-scrollbar{display:none}
-.transit-card{min-width:240px;scroll-snap-align:start;background:linear-gradient(180deg,#ffffff,#f8fbff);border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:var(--shadow)}
-.transit-card .top{display:flex;justify-content:space-between;gap:8px;align-items:start}
-.transit-card .code{font-weight:900;color:var(--indigo)}
-.transit-card .when{font-size:12px;color:var(--muted);margin-top:2px}
-.transit-card .route{font-size:16px;font-weight:800;margin:11px 0 5px}
-.transit-card .note{font-size:12px;color:var(--muted);line-height:1.55}
-.transit-card.upcoming{border-color:#b8cffd;box-shadow:0 20px 45px rgba(45,100,255,.15)}
-.transit-card.done{opacity:.72}
-.hotel-card{padding:16px}
-.kv{display:grid;grid-template-columns:84px 1fr;gap:8px 10px;font-size:13px}
-.kv .k{color:var(--muted)}
-.kv .v{font-weight:700;color:var(--text)}
-.action-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 14px;border-radius:14px;background:#eef4ff;border:1px solid #d8e5ff;color:var(--indigo);font-size:13px;font-weight:700}
-.btn.dark{background:var(--indigo);color:#fff;border-color:transparent}
-.btn.line{background:#fff}
-.info-list{display:grid;gap:10px;padding:16px}
-.info-item{padding:12px 14px;border-radius:18px;background:var(--soft);border:1px solid #e5eefc}
-.info-item b{display:block;margin-bottom:4px}
-.info-item span{font-size:12px;color:var(--muted);line-height:1.55}
-.panel-tools{display:flex;flex-wrap:wrap;gap:8px}
-.acc-wrap{display:grid;gap:12px}
-.day-panel{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
-.day-panel summary{list-style:none;cursor:pointer;padding:16px;display:flex;justify-content:space-between;gap:10px;align-items:center}
-.day-panel summary::-webkit-details-marker{display:none}
-.day-left{display:flex;gap:12px;align-items:flex-start}
-.day-badge{min-width:62px;padding:10px 8px;border-radius:18px;background:#edf4ff;color:var(--indigo);font-weight:900;text-align:center;font-size:12px;line-height:1.25}
-.day-text b{display:block;font-size:18px}
-.day-text small{display:block;color:var(--muted);font-size:13px;margin-top:4px;line-height:1.55}
-.day-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-.arrow{font-size:20px;color:var(--muted);transition:transform .2s ease}
-details[open] .arrow{transform:rotate(180deg)}
-.day-content{padding:0 16px 16px}
-.day-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
-.time-list{display:grid;gap:10px}
-.time-card{padding:12px;border-radius:18px;background:var(--soft);border:1px solid #e5eefc}
-.time-card .t{font-size:12px;font-weight:800;color:var(--indigo);margin-bottom:5px}
-.time-card .title{font-weight:800;font-size:14px}
-.time-card .desc{margin-top:3px;font-size:12px;color:var(--muted);line-height:1.55}
-.sidecard{padding:14px;border-radius:18px;background:linear-gradient(180deg,#fbfdff,#f4f8ff);border:1px solid #e5eefc}
-.sidecard + .sidecard{margin-top:10px}
-.sidecard b{display:block;margin-bottom:4px}
-.sidecard .mut{font-size:12px;color:var(--muted);line-height:1.55}
-.linkchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-.linkchip{padding:8px 10px;border-radius:999px;background:#fff;border:1px solid #d8e5ff;font-size:12px;font-weight:700;color:var(--indigo)}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.phrase-list{display:grid;gap:10px}
-.phrase{padding:12px;border-radius:18px;background:var(--soft);border:1px solid #e5eefc;display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
-.phrase b{display:block;font-size:14px;line-height:1.5}
-.phrase .meta{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.55}
-.copy{flex:0 0 auto;padding:9px 12px;border:none;border-radius:12px;background:var(--indigo);color:#fff;font-weight:700;cursor:pointer}
-.table-wrap{overflow:auto}
-table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:12px 10px;border-bottom:1px solid #e8eef8;text-align:left;white-space:nowrap}th{font-size:12px;color:var(--muted);font-weight:800;background:#f7faff;position:sticky;top:0}
-.map-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.map-card{padding:14px;background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
-.map-card b{display:block;margin-bottom:10px}
-.map-card .action-row{margin-top:0}
-.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.checklist{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px}
-.checklist label{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:16px;background:var(--soft);border:1px solid #e5eefc;font-size:13px}
-.checklist input{margin-top:2px}
-.note{width:100%;min-height:180px;border:1px solid #dbe7fb;border-radius:18px;padding:14px;font-size:14px;resize:vertical;background:#fbfdff;color:var(--text)}
-.footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 10px;line-height:1.8}
-.bottom-nav{position:fixed;left:50%;transform:translateX(-50%);bottom:12px;z-index:50;width:min(720px,calc(100% - 20px));padding:8px;background:rgba(12,21,43,.92);backdrop-filter:blur(12px);border-radius:20px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;box-shadow:0 20px 40px rgba(8,14,28,.28)}
-.bottom-nav a{color:#fff;text-align:center;padding:10px 6px;font-size:11px;opacity:.88}
-.floating-tip{font-size:12px;color:var(--muted);padding:0 4px}
-.notice{padding:12px 14px;border-radius:18px;background:#fff7ec;border:1px solid #ffe0b7;color:#8b5a18;font-size:13px;line-height:1.6}
-.notice.blue{background:#eff6ff;border-color:#dbe7ff;color:#234b9d}
-@media(max-width:980px){.stats,.quick-actions,.grid.main,.day-grid,.two-col,.map-grid,.check-grid,.checklist{grid-template-columns:1fr} .hero{margin-top:8px;border-radius:26px} .stat b{font-size:22px}}
-@media(max-width:640px){.wrap{padding:0 12px 92px} .hero{padding:16px 14px 18px} .section-head h2{font-size:20px} .day-text b{font-size:16px} .mini-row{grid-template-columns:70px 1fr} .kv{grid-template-columns:72px 1fr} .transit-card{min-width:220px} .bottom-nav{border-radius:18px}}
+.grid.two{grid-template-columns:1fr 1fr}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;font-size:11px;font-weight:800}
+.badge.blue{background:#ebf2ff;color:#1c4fb8}
+.badge.green{background:#eaf8f3;color:#0f7d61}
+.badge.orange{background:#fff1e8;color:#c1531d}
+.badge.red{background:#fff0f0;color:#c24444}
+.badge.gray{background:#f1f4f8;color:#5b6880}
+.overview-list{margin:12px 0 0;padding-left:18px}
+.overview-list li{margin:8px 0;color:#34455d}
+.kv{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.kv-item{padding:14px;border-radius:18px;background:linear-gradient(180deg,#fbfdff,#f3f8ff);border:1px solid #e1eaf7}
+.kv-item .label{font-size:12px;color:var(--muted)}
+.kv-item .value{font-size:20px;font-weight:900;margin-top:4px;color:#183564}
+.day-card{overflow:hidden;padding:0}
+.day-top{padding:18px 18px 14px;border-bottom:1px solid #e8eef6;background:linear-gradient(180deg,#fbfdff,#f6faff)}
+.day-meta{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.day-no{font-size:12px;font-weight:800;letter-spacing:.08em;color:#5d6c88;text-transform:uppercase}
+.day-date{font-size:31px;font-weight:900;line-height:1.05;margin-top:4px;color:#14264a}
+.day-sub{font-size:14px;color:#5c6c84;margin-top:6px}
+.day-body{padding:10px 18px 18px}
+.timeline{position:relative;margin-top:6px;padding-left:18px;border-left:2px dashed #cfdcf0}
+.timeline-item{position:relative;padding:0 0 16px 14px}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-item:before{content:"";position:absolute;left:-7px;top:5px;width:10px;height:10px;border-radius:50%;background:#fff;border:3px solid var(--blue)}
+.time{display:inline-block;font-size:12px;font-weight:900;color:#1b4bb2;background:#eef4ff;padding:4px 9px;border-radius:999px}
+.item-title{font-size:15px;font-weight:900;margin:7px 0 4px;color:#17315d}
+.item-desc{font-size:13px;color:#607189}
+.item-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;border-radius:12px;font-size:12px;font-weight:800;background:#eef4ff;color:#2454b3;border:1px solid #dde7fb}
+.btn.dark{background:#14294f;color:#fff;border-color:#14294f}
+.btn.green{background:#eaf8f3;color:#0f7d61;border-color:#d5f1e9}
+.btn.orange{background:#fff1e8;color:#c1531d;border-color:#ffe0cf}
+.btn.ghost{background:#fff;color:#44526a}
+.alert{padding:12px 14px;border-radius:16px;font-size:13px;margin-top:12px;border:1px solid}
+.alert.warn{background:#fff8e8;border-color:#ffe0ab;color:#7c5b00}
+.alert.info{background:#eef5ff;border-color:#d2e2ff;color:#345998}
+.alert.ok{background:#ecfaf5;border-color:#cbefdf;color:#0f775e}
+.mini-title{font-weight:900;font-size:17px;margin:0 0 10px;color:#183564}
+.hotel-card{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;padding:16px;border:1px solid #e4ebf6;border-radius:18px;background:linear-gradient(180deg,#fff,#f7fbff)}
+.hotel-info h3{margin:0 0 5px;font-size:17px}
+.hotel-meta{font-size:13px;color:#607189}
+.hotel-price{font-size:24px;font-weight:900;color:#16376e;text-align:right}
+.hotel-price span{display:block;font-size:12px;color:#6e7c95;font-weight:600}
+.table{width:100%;border-collapse:collapse;font-size:13px}
+.table th,.table td{padding:10px 8px;text-align:left;border-bottom:1px solid #e8eef6;vertical-align:top}
+.table th{font-size:12px;color:#64748e;background:#f8fbff}
+.table tr:last-child td{border-bottom:0}
+details.accordion{border:1px solid #e3ecf7;border-radius:16px;padding:0;background:#fff;overflow:hidden}
+details.accordion + details.accordion{margin-top:10px}
+details summary{list-style:none;cursor:pointer;padding:15px 16px;font-weight:900;color:#1a3462;background:#fbfdff}
+details summary::-webkit-details-marker{display:none}
+details .accordion-body{padding:0 16px 16px}
+.phrase{padding:12px 0;border-bottom:1px solid #e8eef6}
+.phrase:last-child{border-bottom:0}
+.phrase-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.phrase b{font-size:16px;color:#1c3662}
+.phrase .meta{font-size:12px;color:var(--muted);margin-top:4px}
+.copy-btn{border:0;background:#ecf3ff;color:#2150b4;font-weight:800;padding:7px 10px;border-radius:10px;font-size:11px;cursor:pointer}
+.map-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.map-card{padding:15px;border-radius:18px;background:linear-gradient(180deg,#fbfdff,#f5f9ff);border:1px solid #e0eaf6}
+.map-card b{display:block;margin-bottom:10px;font-size:16px;color:#183564}
+.checklist label{display:flex;gap:10px;padding:11px 2px;border-bottom:1px solid #e9eff7;font-size:14px;align-items:flex-start}
+.checklist label:last-child{border-bottom:0}
+.checklist input{width:18px;height:18px;accent-color:#1f56c7;margin-top:2px}
+.note{width:100%;min-height:120px;border:1px solid #dce7f5;border-radius:16px;padding:13px 14px;background:#fbfdff;font:inherit;color:var(--text);resize:vertical}
+.footer{margin:28px 0 8px;text-align:center;color:#7a879c;font-size:12px}
+.top-btn{
+  position:fixed;right:18px;bottom:82px;width:46px;height:46px;border:0;border-radius:50%;
+  background:#162b50;color:#fff;box-shadow:0 12px 28px rgba(15,31,64,.25);font-size:16px;cursor:pointer
+}
+.bottom-bar{
+  position:fixed;left:12px;right:12px;bottom:12px;z-index:22;
+  display:none;gap:10px;padding:10px;border-radius:20px;
+  background:rgba(255,255,255,.96);border:1px solid #d7e3f2;box-shadow:0 12px 28px rgba(21,39,78,.12);backdrop-filter:blur(14px)
+}
+.bottom-bar a{flex:1;text-align:center;padding:10px 8px;border-radius:14px;background:#f3f7ff;color:#1f4dae;font-size:12px;font-weight:900}
+.small{font-size:12px;color:#697791}
+.muted{color:var(--muted)}
+.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#f3f7ff;border:1px solid #dde8fb;padding:2px 6px;border-radius:8px;font-size:12px}
+@media (max-width:960px){
+  .hero-grid,.grid.two,.grid.three,.map-grid{grid-template-columns:1fr}
+  .stats,.kv{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .wrap{padding:0 12px}
+  .hero{padding-top:22px}
+  .hero h1{font-size:31px}
+  .title-row{display:block}
+  .stats,.kv{grid-template-columns:1fr 1fr}
+  .hotel-card{display:block}
+  .hotel-price{text-align:left;margin-top:10px}
+  .day-date{font-size:28px}
+  main{padding-bottom:98px}
+  .bottom-bar{display:flex}
+}
 </style>
 </head>
-<body>
-<div class="wrap">
-  <header class="hero">
-    <div class="statusbar">
-      <div class="status-left"><span>09:41</span><span>📍 Japan Trip</span></div>
-      <div class="status-right"><span>🔋 97%</span><span>📶</span></div>
+<body id="top">
+<header class="hero">
+  <div class="wrap">
+    <div class="topline">Private Trip App · Kyushu Coast 2026</div>
+    <div class="title-row">
+      <div>
+        <h1>九州海岸旅行</h1>
+        <div class="subtitle">武汉 → 香港 → 福冈 → 鹿儿岛指宿 → 樱岛 → 宫崎日南海岸 → 福冈 → 香港 → 武汉</div>
+        <div class="countdown">⏳ <span id="countdown">正在计算出发倒计时…</span></div>
+        <div class="hero-actions">
+          <a class="hero-btn" href="#days">查看每日行程</a>
+          <a class="hero-btn secondary" href="#jr">JR 划座用语</a>
+          <a class="hero-btn secondary" href="#maps">一键导航</a>
+        </div>
+      </div>
+      <div class="glass-card" style="min-width:240px;max-width:300px">
+        <div class="small" style="color:#dce7fb;margin-bottom:8px">路线摘要</div>
+        <div class="quick-route">
+          <span class="route-pill">🎒 小包轻装</span>
+          <span class="route-pill">🚄 全九州 5 日券</span>
+          <span class="route-pill">🌊 海景优先</span>
+          <span class="route-pill">👤 一人旅行</span>
+        </div>
+      </div>
     </div>
-    <div class="hero-body">
-      <div class="app-kicker">Private Trip App · Kyushu Coast 2026</div>
-      <h1>九州海岸旅行</h1>
-      <div class="sub">更像手机旅行 App 的 V5 高级版。这版不再内嵌机票、酒店订单、入境码和 JR 凭证，只保留更轻量、更像真正手机旅行 App 的行程视图。</div>
-      <div class="route-row">
-        <span class="route-pill">🧳 小包轻装</span>
-        <span class="route-pill">🚄 全九州 5 日券</span>
-        <span class="route-pill">🌊 看海优先</span>
-        <span class="route-pill">👤 一人旅行</span>
+    <div class="hero-grid">
+      <div class="glass-card">
+        <div class="small" style="color:#dce7fb;margin-bottom:10px">核心路线</div>
+        <div class="quick-route">
+          <span class="route-pill">香港机场过夜</span>
+          <span class="route-pill">博多换 JR Pass</span>
+          <span class="route-pill">9/30 长崎鼻</span>
+          <span class="route-pill">10/1 樱岛</span>
+          <span class="route-pill">10/1 傍晚宫崎</span>
+          <span class="route-pill">10/2 日南海岸</span>
+          <span class="route-pill">10/2 晚返博多</span>
+        </div>
       </div>
       <div class="stats">
-        <div class="stat"><b>¥3,210</b><span>往返机票</span></div>
+        <div class="stat"><b>¥3,200</b><span>往返机票</span></div>
         <div class="stat"><b>4 晚</b><span>酒店已订</span></div>
         <div class="stat"><b>9/30</b><span>JR Pass 启用</span></div>
-        <div class="stat"><b>10/3</b><span>回国日</span></div>
+        <div class="stat"><b>10/3</b><span>返程回武汉</span></div>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <section class="quick-actions">
-    <a class="icon-card" href="#today"><span class="ico">🗓️</span><b>今日</b><span>行程卡</span></a>
-    <a class="icon-card" href="#transport"><span class="ico">🚄</span><b>交通</b><span>下一程</span></a>
-    <a class="icon-card" href="#days"><span class="ico">📍</span><b>每日</b><span>详情折叠</span></a>
-    <a class="icon-card" href="#jr"><span class="ico">🎫</span><b>JR</b><span>划座用语</span></a>
-    <a class="icon-card" href="#jp"><span class="ico">🗣️</span><b>日语</b><span>直接复制</span></a>
-  </section>
-
-  <section class="section" id="today">
-    <div class="section-head"><h2>今日行程卡</h2><span>自动定位当前日期；出发前会默认显示首日</span></div>
-    <div class="grid main">
-      <div class="card">
-        <div class="card-head"><div><h3>距离下一程倒计时</h3><p id="nextLabel">正在计算下一段行程…</p></div><span class="tag" id="nextTag">Next</span></div>
-        <div class="big-count"><div class="num" id="countdownMain">--:--</div><div class="caption" id="countdownSub">请稍候</div></div>
-        <div class="progress"><span id="tripProgress"></span></div>
-        <div class="today-card">
-          <div class="today-top">
-            <div>
-              <div class="today-title" id="todayTitle">加载中…</div>
-              <div class="today-sub" id="todaySub">请稍候</div>
-            </div>
-            <span class="tag" id="todayTag">Today</span>
-          </div>
-          <div class="timeline-mini" id="todayTimeline"></div>
-        </div>
-      </div>
-      <div class="grid">
-        <div class="card hotel-card">
-          <div class="card-head" style="padding:0 0 12px"><div><h3>今晚住哪里</h3><p>根据当前日期自动提示</p></div><span class="tag">Hotel</span></div>
-          <div class="kv">
-            <div class="k">住宿</div><div class="v" id="hotelName">—</div>
-            <div class="k">路线</div><div class="v" id="hotelRoute">—</div>
-            <div class="k">重点</div><div class="v" id="hotelFocus">—</div>
-          </div>
-        </div>
-        <div class="card pad">
-          <div class="card-head" style="padding:0 0 12px"><div><h3>今天先做什么</h3><p>更像 App 的行前提醒</p></div><span class="tag">Tips</span></div>
-          <div class="info-list" style="padding:0">
-            <div class="info-item"><b>① 先看下一程</b><span>你只需要盯住“下一程倒计时”和“交通卡片”，不必一次把全程看完。</span></div>
-            <div class="info-item"><b>② 其他天默认折叠</b><span>往下看每日行程时，会默认只展开当天，其他天保持收起，手机浏览更清爽。</span></div>
-            <div class="info-item"><b>③ 敏感凭证单独存</b><span>Visit Japan Web、JR Voucher、机酒订单继续单独保存在手机相册或文件里，不公开放在网页。</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="transport">
-    <div class="section-head"><h2>交通卡片</h2><span>横向滑动查看，下一段会自动高亮</span></div>
-    <div class="hscroll" id="transportCards"></div>
-  </section>
-
-  <section class="section">
-    <div class="section-head"><h2>快用功能</h2><span>临场最容易点开的功能</span></div>
-    <div class="two-col">
-      <div class="card pad">
-        <div class="card-head" style="padding:0 0 12px"><div><h3>一键导航</h3><p>优先放你最可能临时会打开的地点</p></div><span class="tag">Maps</span></div>
-        <div class="action-row"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=JR+Kyushu+Ticket+Office+Hakata+Station">JR 窗口</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hakata+Station">博多站</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Nagasakibana+Cape+Kagoshima">长崎鼻</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Kagoshima+Port+Sakurajima+Ferry+Terminal">樱岛渡轮</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Aoshima+Shrine">青岛神社</a><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Udo+Shrine+Miyazaki">鹈户神宫</a></div>
-      </div>
-      <div class="card pad">
-        <div class="card-head" style="padding:0 0 12px"><div><h3>旅途提醒</h3><p>你这种一个人出行很有用</p></div><span class="tag">Useful</span></div>
-        <div class="notice">入住酒店时通常以 <b>护照</b> 为主，订单截图放在你自己手机里备用即可；网页里不再公开展示这些敏感内容。</div>
-        <div class="notice blue" style="margin-top:10px">宫崎公交和景区巴士最容易变动。你在 <b>10/1 晚上</b> 到宫崎后，再用 Google Maps 复核 10/2 当天去青岛 / 鹈户神宫的交通。</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="days">
-    <div class="section-head"><h2>每日详细行程</h2><span>当天展开 / 其他天折叠</span></div>
-    <div class="panel-tools">
-      <button class="btn dark" onclick="focusToday()">只看当天</button>
-      <button class="btn line" onclick="expandAll()">展开全部</button>
-      <button class="btn line" onclick="collapseAll()">折叠全部</button>
-    </div>
-    <div class="acc-wrap" id="daysWrap"></div>
-  </section>
-
-  <section class="section" id="jr">
-    <div class="section-head"><h2>JR Pass 换票 & 划座</h2><span>直接给工作人员看也可以</span></div>
-    <div class="two-col">
-      <div class="card pad">
-        <div class="phrase-list" id="jrPhrases"></div>
-      </div>
-      <div class="card pad">
-        <div class="card-head" style="padding:0 0 12px"><div><h3>计划划座的核心车次</h3><p>实际以窗口能划到的座位为准</p></div><span class="tag">Seat Plan</span></div>
-        <div class="table-wrap">
-          <table>
-            <thead><tr><th>日期</th><th>列车</th><th>区间</th><th>时间</th></tr></thead>
-            <tbody>
-              <tr><td>9/30</td><td>みずほ 601</td><td>博多 → 鹿儿岛中央</td><td>08:30 → 09:46</td></tr>
-              <tr><td>9/30</td><td>指宿のたまて箱 3</td><td>鹿儿岛中央 → 指宿</td><td>11:56 → 12:48</td></tr>
-              <tr><td>10/1</td><td>きりしま 14</td><td>鹿儿岛中央 → 宫崎</td><td>16:18 → 18:42</td></tr>
-              <tr><td>10/2</td><td>にちりんシーガイア 14</td><td>宫崎 → 博多</td><td>16:30 → 约 22:00</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="jp">
-    <div class="section-head"><h2>旅行日语</h2><span>点一下直接复制，临场很好用</span></div>
-    <div class="two-col" id="jpWrap"></div>
-  </section>
-
-  <section class="section" id="check">
-    <div class="section-head"><h2>出发清单 & 便签</h2><span>会自动保存到本机</span></div>
-    <div class="check-grid">
-      <div class="card pad">
-        <div class="card-head" style="padding:0 0 12px"><div><h3>出发清单</h3><p>把凭证文件单独保存在手机即可</p></div><span class="tag">Checklist</span></div>
-        <div class="checklist" id="checklist"></div>
-      </div>
-      <div class="card pad">
-        <div class="card-head" style="padding:0 0 12px"><div><h3>临时记录</h3><p>记站台、座位号、备用方案都很适合</p></div><span class="tag">Memo</span></div>
-        <textarea id="memo" class="note" placeholder="可以记：座位号、月台、巴士站名、天气、临时改签方案、想买的伴手礼……"></textarea>
-      </div>
-    </div>
-  </section>
-
-  <div class="footer">
-    九州海岸旅行 2026 · V5 高级版<br>更偏手机旅行 App 风格。你如果要继续发布到 Netlify，只需要把这个文件替换成仓库里的 index.html 再重新部署即可。
+<div class="nav-shell">
+  <div class="wrap">
+    <nav class="nav">
+      <a href="#overview">总览</a>
+      <a href="#hk">香港</a>
+      <a href="#hotels">酒店</a>
+      <a href="#days">每日行程</a>
+      <a href="#jr">JR划座</a>
+      <a href="#bus">巴士</a>
+      <a href="#maps">导航</a>
+      <a href="#jp">日语</a>
+      <a href="#check">清单</a>
+    </nav>
   </div>
 </div>
 
-<nav class="bottom-nav">
-  <a href="#today">今日</a>
-  <a href="#transport">交通</a>
-  <a href="#days">行程</a>
-  <a href="#jr">JR</a>
-  <a href="#jp">日语</a>
-</nav>
-
-<script>
-const trip = {"title": "九州海岸旅行", "subtitle": "更像手机旅行 App 的 V5 高级版", "route": "武汉 → 香港 → 福冈 → 鹿儿岛/指宿 → 樱岛 → 宫崎 → 博多 → 武汉", "trip_start": "2026-09-28T20:50:00+08:00", "trip_end": "2026-10-03T14:00:00+09:00"};
-const days = [{"id": "day1", "date": "2026-09-28", "day": "DAY 1", "label": "9/28 周一", "route": "武汉 → 香港", "tag": "转机夜", "sub": "夜间飞行，香港机场公共区域休息", "status": "关键出发日", "hotel": "香港机场公共区域休息", "focus": "控制体力，不折腾住宿", "maps": [{"name": "武汉天河 T3", "url": "https://www.google.com/maps/search/?api=1&query=Wuhan+Tianhe+International+Airport+Terminal+3"}, {"name": "香港机场", "url": "https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport"}], "timeline": [{"time": "17:50–18:20", "title": "建议到达武汉天河 T3", "desc": "国际段建议至少提前 2.5～3 小时到机场。"}, {"time": "20:50 → 23:05", "title": "CX931｜武汉 → 香港", "desc": "第一段飞行，落地后按入境指示走。"}, {"time": "23:30 后", "title": "入境香港，找公共区域座位休息", "desc": "直接在机场公共区域找长椅或 24 小时区域，不折腾市区酒店。"}]}, {"id": "day2", "date": "2026-09-29", "day": "DAY 2", "label": "9/29 周二", "route": "香港 → 福冈", "tag": "准备日", "sub": "上午维港轻松走一圈，晚上博多换 JR Pass", "status": "最重要的准备动作：换 JR + 划座", "hotel": "博多 HEARTS 胶囊酒店及水疗中心", "focus": "不要在香港玩太满，保证回机场从容", "maps": [{"name": "香港机场→香港站", "url": "https://www.google.com/maps/dir/?api=1&origin=Hong+Kong+International+Airport&destination=Hong+Kong+Station&travelmode=transit"}, {"name": "香港站→中环码头", "url": "https://www.google.com/maps/dir/?api=1&origin=Hong+Kong+Station&destination=Central+Pier+7&travelmode=walking"}, {"name": "星光大道", "url": "https://www.google.com/maps/search/?api=1&query=Avenue+of+Stars+Hong+Kong"}, {"name": "福冈机场→博多站", "url": "https://www.google.com/maps/dir/?api=1&origin=Fukuoka+Airport+International+Terminal&destination=Hakata+Station&travelmode=transit"}], "timeline": [{"time": "06:30", "title": "起床 / 洗漱 / 简单吃早餐", "desc": "机场内解决即可。"}, {"time": "07:00 左右", "title": "机场快线去香港站", "desc": "按下一班即可，不需要死卡具体班次。"}, {"time": "08:00–10:00", "title": "维港散步", "desc": "香港站 → 中环码头 → 天星小轮 → 尖沙咀海滨 / 星光大道。"}, {"time": "11:00 前后", "title": "返回香港机场", "desc": "这一步宁可早，不要晚。"}, {"time": "15:15 → 19:40", "title": "UO694 / CX5694｜香港 → 福冈", "desc": "第二段飞行。"}, {"time": "20:20–21:20", "title": "福冈机场 → 博多站：兑换 JR Pass + 划指定席", "desc": "当晚一次做完最轻松。直接给工作人员看网页里的 JR 用语。"}, {"time": "21:30 后", "title": "入住博多 HEARTS 胶囊酒店", "desc": "回酒店后早点休息。"}]}, {"id": "day3", "date": "2026-09-30", "day": "DAY 3", "label": "9/30 周三", "route": "博多 → 鹿儿岛 → 指宿长崎鼻", "tag": "海景日", "sub": "主线看海，晚上回鹿儿岛住", "status": "JR Pass 启用", "hotel": "鹿儿岛阿比克酒店", "focus": "长崎鼻灯塔 + 广阔海景", "maps": [{"name": "鹿儿岛中央", "url": "https://www.google.com/maps/search/?api=1&query=Kagoshima-Chuo+Station"}, {"name": "指宿站", "url": "https://www.google.com/maps/search/?api=1&query=Ibusuki+Station"}, {"name": "长崎鼻", "url": "https://www.google.com/maps/search/?api=1&query=Nagasakibana+Cape+Kagoshima"}], "timeline": [{"time": "08:30 → 09:46", "title": "みずほ 601｜博多 → 鹿儿岛中央", "desc": "建议靠窗，前晚已经划好座位。"}, {"time": "11:56 → 12:48", "title": "指宿のたまて箱 3｜鹿儿岛中央 → 指宿", "desc": "观光列车，本身就值得坐。"}, {"time": "13:00 左右", "title": "指宿站 → 长崎鼻", "desc": "出站看巴士站牌，现金最稳。"}, {"time": "13:40–15:40", "title": "长崎鼻灯塔周边看海", "desc": "重点是海、灯塔、海角步道，不强求打卡太多点。"}, {"time": "16:00 前后", "title": "返程回指宿站，再回鹿儿岛中央", "desc": "宁可早点回，不要把晚上赶得太狼狈。"}, {"time": "晚间", "title": "入住鹿儿岛阿比克酒店", "desc": "放好包，吃饭休息。"}]}, {"id": "day4", "date": "2026-10-01", "day": "DAY 4", "label": "10/1 周四", "route": "樱岛 → 宫崎", "tag": "晚班转场", "sub": "白天樱岛慢慢玩，下午四点多去宫崎", "status": "你自己选的更顺路线", "hotel": "宫崎新维尔城市酒店", "focus": "樱岛海边步道 / 展望台 / 足汤", "maps": [{"name": "樱岛渡轮码头", "url": "https://www.google.com/maps/search/?api=1&query=Kagoshima+Port+Sakurajima+Ferry+Terminal"}, {"name": "汤之平展望所", "url": "https://www.google.com/maps/search/?api=1&query=Yunohira+Observation+Point+Sakurajima"}, {"name": "宫崎站", "url": "https://www.google.com/maps/search/?api=1&query=Miyazaki+Station"}], "timeline": [{"time": "上午", "title": "鹿儿岛市区 → 樱岛渡轮 → 樱岛", "desc": "这天只围绕樱岛，不硬塞别的景点。"}, {"time": "建议景点", "title": "溶岩渚步道 / 汤之平展望所 / 海边足汤", "desc": "如果只想看海景，优先步道和展望台。"}, {"time": "15:00 左右", "title": "回鹿儿岛中央站方向", "desc": "为 16 点多那班车留容错。"}, {"time": "16:18 → 18:42", "title": "きりしま 14｜鹿儿岛中央 → 宫崎", "desc": "就是你想要的那班“下午四点多”的车。"}, {"time": "19:00 后", "title": "入住宫崎新维尔城市酒店", "desc": "晚上顺手确认一下 10/2 的巴士。"}]}, {"id": "day5", "date": "2026-10-02", "day": "DAY 5", "label": "10/2 周五", "route": "宫崎日南海岸 → 博多", "tag": "巴士日", "sub": "青岛 / 鹈户神宫，晚上回福冈", "status": "公交需前一晚复核", "hotel": "Montan Hakata", "focus": "这一天海景很多，但不要贪多", "maps": [{"name": "宫崎酒店", "url": "https://www.google.com/maps/search/?api=1&query=New+Wel+City+Miyazaki"}, {"name": "青岛神社", "url": "https://www.google.com/maps/search/?api=1&query=Aoshima+Shrine"}, {"name": "鹈户神宫", "url": "https://www.google.com/maps/search/?api=1&query=Udo+Shrine+Miyazaki"}, {"name": "宫崎站", "url": "https://www.google.com/maps/search/?api=1&query=Miyazaki+Station"}], "timeline": [{"time": "早上", "title": "宫崎站出发去青岛", "desc": "在宫崎站问工作人员最顺的去法也可以。"}, {"time": "上午", "title": "青岛神社 / 鬼之洗衣板", "desc": "很符合你这种“单纯想看海”的偏好。"}, {"time": "中午前后", "title": "继续去鹈户神宫", "desc": "以当日公交衔接为准。"}, {"time": "15:30 前", "title": "尽量回到宫崎站", "desc": "给 JR 回福冈留足容错。"}, {"time": "16:30 → 约 22:00", "title": "にちりんシーガイア 14｜宫崎 → 博多", "desc": "建议提前划好座。"}, {"time": "晚上", "title": "入住 Montan Hakata", "desc": "第二天返程会很轻松。"}]}, {"id": "day6", "date": "2026-10-03", "day": "DAY 6", "label": "10/3 周六", "route": "博多购物 → 福冈机场 → 回国", "tag": "返程日", "sub": "买点东西就去机场", "status": "轻松收尾", "hotel": "—", "focus": "11:30 前尽量到机场", "maps": [{"name": "Montan → 福冈机场国际航站楼", "url": "https://www.google.com/maps/dir/?api=1&origin=Montan+Hakata&destination=Fukuoka+Airport+International+Terminal&travelmode=transit"}], "timeline": [{"time": "08:00–09:00", "title": "起床 / 早餐", "desc": "不慌不忙收拾。"}, {"time": "09:00–10:30", "title": "博多站周边买伴手礼 / 药妆", "desc": "控制节奏，别买太晚。"}, {"time": "10:45–11:20", "title": "去福冈机场国际航站楼", "desc": "建议 11:30 前到机场。"}, {"time": "14:00", "title": "CX513｜福冈 → 香港", "desc": "到港后只有约 50 分钟转机，跟着 Transfer 走。"}, {"time": "17:35 → 19:40", "title": "CX938｜香港 → 武汉", "desc": "本次旅程结束。"}]}];
-const transfers = [{"dt": "2026-09-28T20:50:00+08:00", "code": "CX931", "title": "武汉 → 香港", "type": "flight", "chip": "夜间飞行", "note": "国际段，建议提前 2.5～3 小时到机场"}, {"dt": "2026-09-29T15:15:00+08:00", "code": "UO694 / CX5694", "title": "香港 → 福冈", "type": "flight", "chip": "赴日入境", "note": "上午维港后回机场"}, {"dt": "2026-09-30T08:30:00+09:00", "code": "みずほ 601", "title": "博多 → 鹿儿岛中央", "type": "jr", "chip": "JR Pass", "note": "已计划划指定席"}, {"dt": "2026-09-30T11:56:00+09:00", "code": "指宿のたまて箱 3", "title": "鹿儿岛中央 → 指宿", "type": "jr", "chip": "观光列车", "note": "看海氛围很强"}, {"dt": "2026-10-01T16:18:00+09:00", "code": "きりしま 14", "title": "鹿儿岛中央 → 宫崎", "type": "jr", "chip": "晚班转场", "note": "就是你想坐的四点多那班"}, {"dt": "2026-10-02T16:30:00+09:00", "code": "にちりんシーガイア 14", "title": "宫崎 → 博多", "type": "jr", "chip": "回福冈", "note": "错过就立刻找窗口改最快方案"}, {"dt": "2026-10-03T14:00:00+09:00", "code": "CX513", "title": "福冈 → 香港", "type": "flight", "chip": "返程", "note": "11:30 前尽量到机场"}, {"dt": "2026-10-03T17:35:00+08:00", "code": "CX938", "title": "香港 → 武汉", "type": "flight", "chip": "回国", "note": "香港转机时间较短"}];
-const jrPhrases = [["このJR九州レールパスを9月30日から使いたいです。", "我想从 9 月 30 日开始使用这张 JR 九州周游券。"], ["こちらの列車の指定席をまとめて予約してください。", "请一次帮我把下面这些列车的指定席都预约好。"], ["できれば、景色がよく見える窓側の席をお願いします。", "如果可以，请安排风景好的靠窗座位。"], ["もし間に合わなかった場合、次の列車に変更できますか？", "如果我赶不上这班车，可以改成下一班吗？"]];
-const jpPhrases = {"通用 / 问路": [["すみません。", "不好意思 / 打扰一下"], ["日本語があまり話せません。", "我不太会说日语"], ["ゆっくり話していただけますか？", "可以说慢一点吗？"], ["翻訳アプリを使ってもいいですか？", "可以用翻译软件吗？"], ["ここに行きたいです。", "我想去这里"], ["何番ホームですか？", "几号站台？"]], "入住 / 吃饭": [["チェックインをお願いします。", "麻烦办理入住"], ["予約したQIN YANXINです。", "我是预订的 QIN YANXIN"], ["パスポートはこちらです。", "这是我的护照"], ["チェックアウトをお願いします。", "麻烦办理退房"], ["一人です。", "一位"], ["これをお願いします。", "我要这个"], ["おすすめは何ですか？", "有什么推荐？"]], "巴士 / 应急": [["このバスは長崎鼻に行きますか？", "这班巴士去长崎鼻吗？"], ["このバスは鵜戸神宮に行きますか？", "这班巴士去鹈户神宫吗？"], ["宮崎駅に戻りたいです。どのバスに乗ればいいですか？", "我想回宫崎站，应该坐哪班巴士？"], ["博多まで一番早い行き方をお願いします。", "请告诉我去博多最快的方法。"]]};
-const checklist = ["护照 + 日本签证", "Visit Japan Web 二维码截图（自己单独保存）", "JR Pass Voucher / 条码（自己单独保存）", "机票 / 酒店截图（自己单独保存）", "日元现金 + 信用卡 + Suica", "eSIM / 漫游", "充电宝 / 充电线", "折叠伞 / 薄雨衣", "经期用品 / 常用药", "隐形眼镜 + 备用眼镜", "10/1 晚上再核 10/2 宫崎公交"];
-
-function parseDate(d){return new Date(d).getTime();}
-function startOfDay(dateStr){return new Date(dateStr + 'T00:00:00+09:00').getTime();}
-function endOfDay(dateStr){return new Date(dateStr + 'T23:59:59+09:00').getTime();}
-function pad(n){return String(n).padStart(2,'0')}
-function fmtRemain(ms){
-  if(ms <= 0) return '已开始';
-  const d = Math.floor(ms/86400000); const h = Math.floor(ms%86400000/3600000); const m = Math.floor(ms%3600000/60000);
-  if(d>0) return `${d}天 ${h}小时 ${m}分钟`;
-  if(h>0) return `${h}小时 ${m}分钟`;
-  return `${m}分钟`;
-}
-function formatWhen(dt){
-  const d = new Date(dt);
-  return `${d.getMonth()+1}/${d.getDate()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
-}
-function getActiveDayIndex(nowTs){
-  const first = startOfDay(days[0].date);
-  const last = endOfDay(days[days.length-1].date);
-  if(nowTs < first) return 0;
-  if(nowTs > last) return days.length-1;
-  for(let i=0;i<days.length;i++){
-    if(nowTs >= startOfDay(days[i].date) && nowTs <= endOfDay(days[i].date)) return i;
-  }
-  return 0;
-}
-function getNextTransfer(nowTs){
-  return transfers.find(t => parseDate(t.dt) > nowTs) || null;
-}
-function updateTopCards(){
-  const nowTs = Date.now();
-  const activeIdx = getActiveDayIndex(nowTs);
-  const active = days[activeIdx];
-  const next = getNextTransfer(nowTs);
-  document.getElementById('todayTitle').textContent = `${active.day} · ${active.route}`;
-  document.getElementById('todaySub').textContent = `${active.label}｜${active.sub}`;
-  document.getElementById('todayTag').textContent = active.tag;
-  document.getElementById('hotelName').textContent = active.hotel;
-  document.getElementById('hotelRoute').textContent = active.route;
-  document.getElementById('hotelFocus').textContent = active.focus;
-
-  const tl = document.getElementById('todayTimeline');
-  tl.innerHTML = active.timeline.slice(0,4).map(item => `
-    <div class="mini-row">
-      <div class="mini-time">${item.time}</div>
-      <div><div class="mini-title">${item.title}</div><div class="mini-desc">${item.desc || ''}</div></div>
-    </div>`).join('');
-
-  const start = parseDate(trip.trip_start); const end = parseDate(trip.trip_end);
-  const total = end - start; const progress = Math.max(0, Math.min(100, ((nowTs - start) / total) * 100));
-  document.getElementById('tripProgress').style.width = progress + '%';
-
-  if(next){
-    const diff = parseDate(next.dt) - nowTs;
-    document.getElementById('nextLabel').textContent = `下一程：${next.code}｜${next.title}`;
-    document.getElementById('nextTag').textContent = next.chip;
-    document.getElementById('countdownMain').textContent = fmtRemain(diff);
-    document.getElementById('countdownSub').textContent = `${formatWhen(next.dt)} 出发 · ${next.note}`;
-  } else {
-    document.getElementById('nextLabel').textContent = '本次旅程的主要交通已全部完成';
-    document.getElementById('nextTag').textContent = 'Done';
-    document.getElementById('countdownMain').textContent = '已完成';
-    document.getElementById('countdownSub').textContent = '可以回顾照片，或者把这个模板下次继续复用。';
-  }
-}
-function renderTransport(){
-  const nowTs = Date.now();
-  const box = document.getElementById('transportCards');
-  box.innerHTML = transfers.map(t => {
-    const ts = parseDate(t.dt);
-    const cls = ts > nowTs ? 'upcoming' : 'done';
-    return `<div class="transit-card ${cls}">
-      <div class="top"><div><div class="code">${t.code}</div><div class="when">${formatWhen(t.dt)}</div></div><span class="tag">${t.chip}</span></div>
-      <div class="route">${t.title}</div>
-      <div class="note">${t.note}</div>
-    </div>`;
-  }).join('');
-}
-function renderDays(){
-  const nowTs = Date.now();
-  const activeIdx = getActiveDayIndex(nowTs);
-  const wrap = document.getElementById('daysWrap');
-  wrap.innerHTML = days.map((d, idx) => `
-    <details class="day-panel" ${idx===activeIdx ? 'open' : ''} data-day-index="${idx}" id="${d.id}">
-      <summary>
-        <div class="day-left">
-          <div class="day-badge">${d.day}<br>${d.label}</div>
-          <div class="day-text"><b>${d.route}</b><small>${d.sub}</small></div>
+<main>
+  <div class="wrap">
+    <section class="section" id="overview">
+      <div class="section-title">
+        <h2>最终方案总览</h2>
+        <div class="hint">你现在的正式版本路线</div>
+      </div>
+      <div class="card">
+        <span class="badge blue">最终确定版</span>
+        <ul class="overview-list">
+          <li><b>9/28：</b>武汉 20:50 起飞 → 香港 23:05，到港后在机场公共区域休息。</li>
+          <li><b>9/29：</b>香港上午轻松看维港 → 15:15 飞福冈 → 19:40 抵达 → 直接去博多站兑换 <span class="code">JR Pass</span> 并一次性划好后面几天的指定席。</li>
+          <li><b>9/30：</b>早上从博多出发去鹿儿岛，再去指宿和长崎鼻灯塔，当晚回鹿儿岛住宿。</li>
+          <li><b>10/1：</b>白天樱岛慢慢玩，下午 4 点多从鹿儿岛中央去宫崎，晚上入住宫崎。</li>
+          <li><b>10/2：</b>宫崎日南海岸（青岛 / 鹈户神宫）→ 傍晚坐 JR 返回博多。</li>
+          <li><b>10/3：</b>博多站周边买伴手礼 → 中午去福冈机场 → 14:00 起飞回国。</li>
+        </ul>
+        <div class="kv">
+          <div class="kv-item"><div class="label">JR 使用建议</div><div class="value">5 日券</div></div>
+          <div class="kv-item"><div class="label">最关键动作</div><div class="value">9/29 先划座</div></div>
+          <div class="kv-item"><div class="label">你旅行风格</div><div class="value">看海优先</div></div>
+          <div class="kv-item"><div class="label">行李模式</div><div class="value">全程小包</div></div>
         </div>
-        <div class="day-right"><span class="tag">${d.tag}</span><span class="floating-tip">${d.status}</span><span class="arrow">⌄</span></div>
-      </summary>
-      <div class="day-content">
-        <div class="day-grid">
-          <div class="time-list">
-            ${d.timeline.map(item => `<div class="time-card"><div class="t">${item.time}</div><div class="title">${item.title}</div><div class="desc">${item.desc || ''}</div></div>`).join('')}
+        <div class="alert info"><b>提醒：</b>10/2 宫崎公交改点风险最大，前一天晚上用 Google Maps 或宫崎交通官网再复核一次当天去青岛 / 鹈户神宫的巴士时刻。</div>
+      </div>
+    </section>
+
+    <section class="section" id="hk">
+      <div class="section-title">
+        <h2>香港转机方案</h2>
+        <div class="hint">过夜 + 白天短暂出行</div>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <span class="badge orange">到港当晚</span>
+          <h3 class="mini-title">睡哪儿最现实</h3>
+          <div class="muted">因为你第二天要直接入境去香港市区，所以不建议死守禁区。更实际的方案是：<b>入境后留在机场公共区域休息</b>，优先找 <b>T2 / 餐饮区 / 24 小时区域</b> 的公共长椅、座位区或麦当劳附近。</div>
+          <div class="alert warn"><b>核心思路：</b>找公共长椅休息即可，不折腾市区酒店，不折腾来回，第二天早上洗漱后直接去维港。</div>
+          <div class="item-actions">
+            <a class="btn dark" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hong+Kong+International+Airport+Terminal+2">机场 T2</a>
+            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=McDonalds+Hong+Kong+International+Airport">机场麦当劳</a>
           </div>
-          <div>
-            <div class="sidecard"><b>今日重点</b><div class="mut">${d.focus}</div></div>
-            <div class="sidecard"><b>今晚住宿</b><div class="mut">${d.hotel}</div></div>
-            <div class="sidecard"><b>临场提示</b><div class="mut">${d.status}</div><div class="linkchips">${(d.maps||[]).map(m=>`<a class="linkchip" target="_blank" href="${m.url}">${m.name}</a>`).join('')}</div></div>
+        </div>
+        <div class="card">
+          <span class="badge green">白天转转</span>
+          <h3 class="mini-title">上午只去一个区域最轻松</h3>
+          <div class="muted">推荐：<b>机场 → 香港站 → 中环码头 → 天星小轮 → 尖沙咀海滨</b>。路线简单、风景稳定、不容易迷路，还能看维港。</div>
+          <div class="item-actions">
+            <a class="btn" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Hong+Kong+International+Airport&destination=Hong+Kong+Station&travelmode=transit">机场→香港站</a>
+            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Avenue+of+Stars+Hong+Kong">星光大道</a>
           </div>
         </div>
       </div>
-    </details>`).join('');
-}
-function focusToday(){
-  const nowTs = Date.now();
-  const activeIdx = getActiveDayIndex(nowTs);
-  document.querySelectorAll('.day-panel').forEach((el,i)=>el.open = i===activeIdx);
-  document.querySelectorAll('.day-panel')[activeIdx]?.scrollIntoView({behavior:'smooth',block:'start'});
-}
-function expandAll(){ document.querySelectorAll('.day-panel').forEach(el=>el.open = true); }
-function collapseAll(){ document.querySelectorAll('.day-panel').forEach(el=>el.open = false); }
-window.focusToday = focusToday; window.expandAll = expandAll; window.collapseAll = collapseAll;
+    </section>
 
-function renderPhrases(){
-  document.getElementById('jrPhrases').innerHTML = jrPhrases.map((row,idx)=>`<div class="phrase"><div><b id="jr-${idx}">${row[0]}</b><div class="meta">${row[1]}</div></div><button class="copy" onclick="copyText('jr-${idx}')">复制</button></div>`).join('');
-  const jpWrap = document.getElementById('jpWrap');
-  jpWrap.innerHTML = Object.entries(jpPhrases).map(([title,rows],colIdx)=>`<div class="card pad"><div class="card-head" style="padding:0 0 12px"><div><h3>${title}</h3><p>日文 + 中文解释放在一起</p></div><span class="tag">${colIdx+1}</span></div><div class="phrase-list">${rows.map((r,i)=>`<div class="phrase"><div><b id="jp-${colIdx}-${i}">${r[0]}</b><div class="meta">${r[1]}</div></div><button class="copy" onclick="copyText('jp-${colIdx}-${i}')">复制</button></div>`).join('')}</div></div>`).join('');
+    <section class="section" id="hotels">
+      <div class="section-title">
+        <h2>已订酒店</h2>
+        <div class="hint">与你现在截图一致</div>
+      </div>
+      <div class="card">
+        <div class="hotel-card">
+          <div class="hotel-info">
+            <span class="badge blue">9/29 → 9/30</span>
+            <h3>博多 HEARTS 胶囊酒店及水疗中心</h3>
+            <div class="hotel-meta">4 Chome-14-13 Hakata Ekimae · 女性胶囊床位 · 方便你 9/29 晚上换 JR Pass</div>
+          </div>
+          <div class="hotel-price">¥213.3<span>到店付（不含住宿税）</span></div>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-info">
+            <span class="badge orange">9/30 → 10/1</span>
+            <h3>鹿儿岛阿比克酒店</h3>
+            <div class="hotel-meta">1 Chome-3-1 Take · 单人房带浴室 · 晚上从指宿回到鹿儿岛入住</div>
+          </div>
+          <div class="hotel-price">¥280.33<span>到店付</span></div>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-info">
+            <span class="badge green">10/1 → 10/2</span>
+            <h3>宫崎新维尔城市酒店</h3>
+            <div class="hotel-meta">1 Chome-2-8 Miyazakiekihigashi · 标准单人房 · 宫崎站东侧，交通比较顺</div>
+          </div>
+          <div class="hotel-price">¥295.18<span>到店付</span></div>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-info">
+            <span class="badge gray">10/2 → 10/3</span>
+            <h3>Montan Hakata</h3>
+            <div class="hotel-meta">Hakataekihigashi 3 Chome-6-11 · 女性宿舍房 · 返程前最后一晚</div>
+          </div>
+          <div class="hotel-price">¥261.18<span>到店付（不含住宿税）</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="days">
+      <div class="section-title">
+        <h2>每日详细行程</h2>
+        <div class="hint">手机看也会比较清楚</div>
+      </div>
+
+      <div class="card day-card">
+        <div class="day-top">
+          <div class="day-meta">
+            <div>
+              <div class="day-no">DAY 1 · 9/28 周一</div>
+              <div class="day-date">武汉 → 香港</div>
+              <div class="day-sub">夜间飞行，机场休息</div>
+            </div>
+            <span class="badge orange">转机过夜</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="time">20:50 → 23:05</div>
+              <div class="item-title">CX931 武汉 → 香港</div>
+              <div class="item-desc">提前 2.5～3 小时到武汉天河 T3。到香港后，按入境标识走，去公共区域休息。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">23:40 后</div>
+              <div class="item-title">在机场找长椅/座位区休息</div>
+              <div class="item-desc">优先找 24 小时区域，简单洗漱充电，不建议深夜再跑远。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card day-card">
+        <div class="day-top">
+          <div class="day-meta">
+            <div>
+              <div class="day-no">DAY 2 · 9/29 周二</div>
+              <div class="day-date">香港 → 福冈</div>
+              <div class="day-sub">上午维港，晚上博多换 JR Pass</div>
+            </div>
+            <span class="badge blue">关键准备日</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="time">06:30</div>
+              <div class="item-title">起床，洗漱，吃点早餐</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">07:00 左右</div>
+              <div class="item-title">机场快线去香港站</div>
+              <div class="item-desc">车次很多，按下一班即可。</div>
+              <div class="item-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Hong+Kong+International+Airport&destination=Hong+Kong+Station&travelmode=transit">导航</a></div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">08:00–10:00</div>
+              <div class="item-title">维港散步</div>
+              <div class="item-desc">香港站 → 中环码头 → 天星小轮 → 尖沙咀海滨 / 星光大道，看海就够了，不安排太满。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">11:00 前后</div>
+              <div class="item-title">回机场</div>
+              <div class="item-desc">给自己留足时间，不赶。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">15:15 → 19:40</div>
+              <div class="item-title">CX5694 / UO694 香港 → 福冈</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">20:20–21:20</div>
+              <div class="item-title">福冈机场 → 博多站兑换 JR Pass + 划指定席</div>
+              <div class="item-desc">这是当天最重要的动作。你要让工作人员一次帮你划好 9/30、10/1、10/2 的车票。</div>
+              <div class="item-actions"><a class="btn dark" href="#jr">去看划座用语</a></div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">21:30 后</div>
+              <div class="item-title">入住博多 HEARTS 胶囊酒店</div>
+            </div>
+          </div>
+          <div class="alert info"><b>赶不上 JR 窗口怎么办？</b> 先去酒店附近看看是否还有晚间营业窗口；如果当天来不及，次日一早在博多站第一时间换。但最佳方案还是 9/29 晚上一次做完。</div>
+        </div>
+      </div>
+
+      <div class="card day-card">
+        <div class="day-top">
+          <div class="day-meta">
+            <div>
+              <div class="day-no">DAY 3 · 9/30 周三</div>
+              <div class="day-date">博多 → 鹿儿岛 → 指宿长崎鼻</div>
+              <div class="day-sub">看海主线，晚上回鹿儿岛住</div>
+            </div>
+            <span class="badge green">海景日</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="time">08:30 → 09:46</div>
+              <div class="item-title">みずほ 601｜博多 → 鹿儿岛中央</div>
+              <div class="item-desc">靠窗会更舒服，记得前晚已划座。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">11:56 → 12:48</div>
+              <div class="item-title">指宿のたまて箱 3｜鹿儿岛中央 → 指宿</div>
+              <div class="item-desc">这是观光列车，本身就是风景体验的一部分。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">13:00 左右</div>
+              <div class="item-title">指宿站 → 长崎鼻</div>
+              <div class="item-desc">出站后看巴士站牌，现金最稳。你这一段就是去看灯塔和广阔海景，节奏不用太赶。</div>
+              <div class="item-actions">
+                <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Ibusuki+Station">指宿站</a>
+                <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Nagasakibana+Cape+Kagoshima">长崎鼻</a>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">13:40–15:40</div>
+              <div class="item-title">长崎鼻灯塔周边看海</div>
+              <div class="item-desc">你就是专门去看风景，所以重点留给海、灯塔、海角步道，不强求打卡太多点。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">返程建议 16 点前后</div>
+              <div class="item-title">长崎鼻 → 指宿站 → 鹿儿岛中央</div>
+              <div class="item-desc">原则：宁可早点回，也不要把晚上赶得太狼狈。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">晚间</div>
+              <div class="item-title">入住鹿儿岛阿比克酒店</div>
+            </div>
+          </div>
+          <div class="alert warn"><b>如果错过回程巴士：</b>先回到最近主路公交站，或者直接打开 Google Maps 查回指宿站的下一班交通；实在来不及就优先回指宿站，后续 JR 回鹿儿岛。</div>
+        </div>
+      </div>
+
+      <div class="card day-card">
+        <div class="day-top">
+          <div class="day-meta">
+            <div>
+              <div class="day-no">DAY 4 · 10/1 周四</div>
+              <div class="day-date">樱岛 → 宫崎</div>
+              <div class="day-sub">白天樱岛慢慢转，下午四点多去宫崎</div>
+            </div>
+            <span class="badge orange">晚班转场</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="time">上午</div>
+              <div class="item-title">鹿儿岛市区 → 樱岛渡轮 → 樱岛</div>
+              <div class="item-desc">你这天的重点是岛上慢慢逛，不着急压缩时间去别处。</div>
+              <div class="item-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Kagoshima+Port+Sakurajima+Ferry+Terminal">樱岛渡轮码头</a></div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">建议景点</div>
+              <div class="item-title">溶岩渚步道 / 汤之平展望所 / 海边足汤</div>
+              <div class="item-desc">你如果只想看海景，优先步道和展望台，节奏会舒服很多。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">15:00 左右</div>
+              <div class="item-title">回鹿儿岛中央站附近取向宫崎方向</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">16:18 → 18:42</div>
+              <div class="item-title">きりしま 14｜鹿儿岛中央 → 宫崎</div>
+              <div class="item-desc">这是你之前想要的“下午四点多”那一班，很适合你在樱岛多待一会儿。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">19:00 后</div>
+              <div class="item-title">入住宫崎新维尔城市酒店</div>
+            </div>
+          </div>
+          <div class="alert ok"><b>这天的优化点：</b>先看樱岛，再晚一点去宫崎，时间比“白天赶去宫崎”顺得多，也更符合你主要想看风景的目的。</div>
+        </div>
+      </div>
+
+      <div class="card day-card">
+        <div class="day-top">
+          <div class="day-meta">
+            <div>
+              <div class="day-no">DAY 5 · 10/2 周五</div>
+              <div class="day-date">宫崎日南海岸 → 博多</div>
+              <div class="day-sub">青岛 / 鹈户神宫，晚上回福冈</div>
+            </div>
+            <span class="badge blue">巴士需复核</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="time">早上</div>
+              <div class="item-title">宫崎站出发去青岛</div>
+              <div class="item-desc">你可以在宫崎站问工作人员最顺的去法。日语短句下方已准备。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">上午</div>
+              <div class="item-title">青岛神社 / 鬼之洗衣板</div>
+              <div class="item-desc">这一段海岸线很适合你这种“单纯想看海”的旅行偏好。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">中午前后</div>
+              <div class="item-title">继续去鹈户神宫</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">15:30 前</div>
+              <div class="item-title">尽量回到宫崎站</div>
+              <div class="item-desc">预留容错，不要卡最后一分钟。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">16:30 → 约 22:00</div>
+              <div class="item-title">にちりんシーガイア 14｜宫崎 → 博多</div>
+              <div class="item-desc">这班建议提前划好座。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">晚上</div>
+              <div class="item-title">入住 Montan Hakata</div>
+            </div>
+          </div>
+          <div class="alert warn"><b>错过 16:30 怎么办：</b>直接去 JR 窗口说“博多まで一番早い行き方をお願いします”，让工作人员帮你改最快方案，不要自己慌着乱换。</div>
+        </div>
+      </div>
+
+      <div class="card day-card">
+        <div class="day-top">
+          <div class="day-meta">
+            <div>
+              <div class="day-no">DAY 6 · 10/3 周六</div>
+              <div class="day-date">博多购物 → 返程</div>
+              <div class="day-sub">买一点东西就去机场</div>
+            </div>
+            <span class="badge gray">回国日</span>
+          </div>
+        </div>
+        <div class="day-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="time">08:00–09:00</div>
+              <div class="item-title">起床、早餐</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">09:00–10:30</div>
+              <div class="item-title">博多站周边买伴手礼 / 药妆</div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">10:45–11:20</div>
+              <div class="item-title">去福冈机场国际航站楼</div>
+              <div class="item-desc">建议 11:30 前到机场。</div>
+              <div class="item-actions"><a class="btn" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Montan+Hakata&destination=Fukuoka+Airport+International+Terminal&travelmode=transit">导航</a></div>
+            </div>
+            <div class="timeline-item">
+              <div class="time">14:00</div>
+              <div class="item-title">CX513 福冈 → 香港 → CX938 香港 → 武汉</div>
+              <div class="item-desc">香港这次只有 50 分钟转机，不逛，跟着 Transfer 走。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="jr">
+      <div class="section-title">
+        <h2>JR Pass 换票 & 划座</h2>
+        <div class="hint">给工作人员直接看也可以</div>
+      </div>
+      <div class="card">
+        <div class="alert info"><b>你到福冈当晚可以直接去换吗？</b> 可以，只要博多站窗口还在营业，就优先当晚做完：<b>换 Pass + 划座</b>，第二天会轻松很多。</div>
+        <div class="phrase">
+          <div class="phrase-top"><div><b id="jr1">このJR九州レールパスを9月30日から使いたいです。</b><div class="meta">我想从 9 月 30 日开始使用这张 JR 九州周游券。</div></div><button class="copy-btn" onclick="copyText('jr1')">复制</button></div>
+        </div>
+        <div class="phrase">
+          <div class="phrase-top"><div><b id="jr2">こちらの列車の指定席をまとめて予約してください。</b><div class="meta">请一次帮我把下面这些列车的指定席都预约好。</div></div><button class="copy-btn" onclick="copyText('jr2')">复制</button></div>
+        </div>
+        <div class="phrase">
+          <div class="phrase-top"><div><b id="jr3">できれば、景色がよく見える窓側の席をお願いします。</b><div class="meta">如果可以，请安排风景好的靠窗座位。</div></div><button class="copy-btn" onclick="copyText('jr3')">复制</button></div>
+        </div>
+        <div class="phrase">
+          <div class="phrase-top"><div><b id="jr4">もし間に合わなかった場合、次の列車に変更できますか？</b><div class="meta">如果我赶不上这班车，可以改成下一班吗？</div></div><button class="copy-btn" onclick="copyText('jr4')">复制</button></div>
+        </div>
+        <table class="table" style="margin-top:14px">
+          <thead>
+            <tr><th>日期</th><th>列车</th><th>区间</th><th>时间</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>9/30</td><td>みずほ 601</td><td>博多 → 鹿儿岛中央</td><td>08:30 → 09:46</td></tr>
+            <tr><td>9/30</td><td>指宿のたまて箱 3</td><td>鹿儿岛中央 → 指宿</td><td>11:56 → 12:48</td></tr>
+            <tr><td>10/1</td><td>きりしま 14</td><td>鹿儿岛中央 → 宫崎</td><td>16:18 → 18:42</td></tr>
+            <tr><td>10/2</td><td>にちりんシーガイア 14</td><td>宫崎 → 博多</td><td>16:30 → 约 22:00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" id="bus">
+      <div class="section-title">
+        <h2>巴士怎么坐</h2>
+        <div class="hint">你最容易临场用到的部分</div>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <span class="badge orange">指宿 / 长崎鼻</span>
+          <h3 class="mini-title">现金最稳</h3>
+          <div class="muted">一般上车先拿整理券，下车看前方电子屏对应金额付款。最好准备 <b>1000 / 100 / 50 / 10 日元</b>，避免找零问题。</div>
+        </div>
+        <div class="card">
+          <span class="badge green">宫崎交通</span>
+          <h3 class="mini-title">前一天晚上再确认</h3>
+          <div class="muted">宫崎这边巴士时刻最容易变化，所以你 10/1 晚上入住后，再用 Google Maps 看一遍 10/2 当天去青岛、鹈户神宫的方案。</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="phrase">
+          <div class="phrase-top"><div><b id="b1">このバスは長崎鼻に行きますか？</b><div class="meta">这班巴士去长崎鼻吗？</div></div><button class="copy-btn" onclick="copyText('b1')">复制</button></div>
+        </div>
+        <div class="phrase">
+          <div class="phrase-top"><div><b id="b2">このバスは鵜戸神宮に行きますか？</b><div class="meta">这班巴士去鹈户神宫吗？</div></div><button class="copy-btn" onclick="copyText('b2')">复制</button></div>
+        </div>
+        <div class="phrase">
+          <div class="phrase-top"><div><b id="b3">宮崎駅に戻りたいです。どのバスに乗ればいいですか？</b><div class="meta">我想回宫崎站，应该坐哪班车？</div></div><button class="copy-btn" onclick="copyText('b3')">复制</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="maps">
+      <div class="section-title">
+        <h2>一键导航</h2>
+        <div class="hint">手机直接点开即可</div>
+      </div>
+      <div class="map-grid">
+        <div class="map-card">
+          <b>香港</b>
+          <div class="item-actions">
+            <a class="btn" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Hong+Kong+International+Airport&destination=Hong+Kong+Station&travelmode=transit">机场→香港站</a>
+            <a class="btn" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Hong+Kong+Station&destination=Central+Pier+7&travelmode=walking">香港站→中环码头</a>
+            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Avenue+of+Stars+Hong+Kong">星光大道</a>
+          </div>
+        </div>
+        <div class="map-card">
+          <b>福冈</b>
+          <div class="item-actions">
+            <a class="btn" target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=Fukuoka+Airport+International+Terminal&destination=Hakata+Station&travelmode=transit">机场→博多</a>
+            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=JR+Kyushu+Ticket+Office+Hakata+Station">JR 窗口</a>
+            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Montan+Hakata">Montan</a>
+          </div>
+        </div>
+        <div class="map-card">
+          <b>鹿儿岛 / 指宿</b>
+          <div class="item-actions">
+            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Kagoshima-Chuo+Station">鹿儿岛中央</a>
+            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Ibusuki+Station">指宿站</a>
+            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Nagasakibana+Cape+Kagoshima">长崎鼻</a>
+            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Kagoshima+Port+Sakurajima+Ferry+Terminal">樱岛渡轮</a>
+          </div>
+        </div>
+        <div class="map-card">
+          <b>宫崎</b>
+          <div class="item-actions">
+            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=New+Wel+City+Miyazaki">宫崎酒店</a>
+            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Aoshima+Shrine">青岛神社</a>
+            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Udo+Shrine+Miyazaki">鹈户神宫</a>
+            <a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Miyazaki+Station">宫崎站</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="jp">
+      <div class="section-title">
+        <h2>旅行日语</h2>
+        <div class="hint">点一下可复制</div>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <h3 class="mini-title">通用 / 问路</h3>
+          <div class="phrase"><div class="phrase-top"><div><b id="j1">すみません。</b><div class="meta">不好意思 / 打扰一下</div></div><button class="copy-btn" onclick="copyText('j1')">复制</button></div></div>
+          <div class="phrase"><div class="phrase-top"><div><b id="j2">日本語があまり話せません。</b><div class="meta">我不太会说日语</div></div><button class="copy-btn" onclick="copyText('j2')">复制</button></div></div>
+          <div class="phrase"><div class="phrase-top"><div><b id="j3">ゆっくり話していただけますか？</b><div class="meta">可以说慢一点吗？</div></div><button class="copy-btn" onclick="copyText('j3')">复制</button></div></div>
+          <div class="phrase"><div class="phrase-top"><div><b id="j4">翻訳アプリを使ってもいいですか？</b><div class="meta">可以用翻译软件吗？</div></div><button class="copy-btn" onclick="copyText('j4')">复制</button></div></div>
+          <div class="phrase"><div class="phrase-top"><div><b id="j5">ここに行きたいです。</b><div class="meta">我想去这里</div></div><button class="copy-btn" onclick="copyText('j5')">复制</button></div></div>
+          <div class="phrase"><div class="phrase-top"><div><b id="j6">何番ホームですか？</b><div class="meta">几号站台？</div></div><button class="copy-btn" onclick="copyText('j6')">复制</button></div></div>
+        </div>
+        <div class="card">
+          <h3 class="mini-title">入住 / 吃饭</h3>
+          <div class="phrase"><div class="phrase-top"><div><b id="j7">チェックインをお願いします。</b><div class="meta">麻烦办理入住</div></div><button class="copy-btn" onclick="copyText('j7')">复制</button></div></div>
+          <div class="phrase"><div class="phrase-top"><div><b id="j8">予約したQIN YANXINです。</b><div class="meta">我是预订的 QIN YANXIN</div></div><button class="copy-btn" onclick="copyText('j8')">复制</button></div></div>
+          <div class="phrase"><div class="phrase-top"><div><b id="j9">チェックアウトをお願いします。</b><div class="meta">麻烦办理退房</div></div><button class="copy-btn" onclick="copyText('j9')">复制</button></div></div>
+          <div class="phrase"><div class="phrase-top"><div><b id="j10">一人です。</b><div class="meta">一位</div></div><button class="copy-btn" onclick="copyText('j10')">复制</button></div></div>
+          <div class="phrase"><div class="phrase-top"><div><b id="j11">これをお願いします。</b><div class="meta">我要这个</div></div><button class="copy-btn" onclick="copyText('j11')">复制</button></div></div>
+          <div class="phrase"><div class="phrase-top"><div><b id="j12">おすすめは何ですか？</b><div class="meta">有什么推荐？</div></div><button class="copy-btn" onclick="copyText('j12')">复制</button></div></div>
+          <div class="phrase"><div class="phrase-top"><div><b id="j13">お会計をお願いします。</b><div class="meta">麻烦结账</div></div><button class="copy-btn" onclick="copyText('j13')">复制</button></div></div>
+        </div>
+      </div>
+      <details class="accordion" style="margin-top:12px" open>
+        <summary>常用地名读法</summary>
+        <div class="accordion-body">
+          <table class="table">
+            <thead><tr><th>中文</th><th>日文</th><th>假名</th></tr></thead>
+            <tbody>
+              <tr><td>博多</td><td>博多</td><td>はかた</td></tr>
+              <tr><td>鹿儿岛中央</td><td>鹿児島中央</td><td>かごしまちゅうおう</td></tr>
+              <tr><td>指宿</td><td>指宿</td><td>いぶすき</td></tr>
+              <tr><td>长崎鼻</td><td>長崎鼻</td><td>ながさきばな</td></tr>
+              <tr><td>樱岛</td><td>桜島</td><td>さくらじま</td></tr>
+              <tr><td>宫崎</td><td>宮崎</td><td>みやざき</td></tr>
+              <tr><td>青岛</td><td>青島</td><td>あおしま</td></tr>
+              <tr><td>鹈户神宫</td><td>鵜戸神宮</td><td>うどじんぐう</td></tr>
+              <tr><td>日南海岸</td><td>日南海岸</td><td>にちなんかいがん</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <section class="section" id="check">
+      <div class="section-title">
+        <h2>出发清单</h2>
+        <div class="hint">可勾选，会自动保存</div>
+      </div>
+      <div class="grid two">
+        <div class="card checklist" id="checklist">
+          <label><input type="checkbox">护照 + 日本签证</label>
+          <label><input type="checkbox">Visit Japan Web 二维码截图</label>
+          <label><input type="checkbox">JR Pass Voucher / 条码</label>
+          <label><input type="checkbox">机票 / 酒店截图</label>
+          <label><input type="checkbox">日元现金 + 信用卡 + Suica</label>
+          <label><input type="checkbox">eSIM / 漫游</label>
+          <label><input type="checkbox">充电宝 / 充电线</label>
+          <label><input type="checkbox">折叠伞 / 薄雨衣</label>
+          <label><input type="checkbox">经期用品 / 常用药</label>
+          <label><input type="checkbox">隐形眼镜 + 备用眼镜</label>
+          <label><input type="checkbox">10/1 晚上再核 10/2 宫崎公交</label>
+        </div>
+        <div class="card">
+          <h3 class="mini-title">临时记录</h3>
+          <textarea id="memo" class="note" placeholder="可以记：座位号、换乘方案、巴士站名、天气、想买的伴手礼……"></textarea>
+        </div>
+      </div>
+      <div class="card" style="margin-top:12px">
+        <div class="mini-title">信息来源说明</div>
+        <div class="small">此网页根据你当前已订机票、酒店和既定路线整理，核心JR车次按你前面确定的方案制作。实际出发当天，<b>电子屏、车站窗口、Google Maps 实时方案、现场巴士站牌</b>优先级最高。</div>
+      </div>
+    </section>
+
+    <div class="footer">
+      九州海岸旅行 2026 · 优化版网页<br>
+      适合手机 / 电脑查看，后续你还可以继续在 GitHub 里替换 index.html 自动同步到 Netlify
+    </div>
+  </div>
+</main>
+
+<button class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div class="bottom-bar">
+  <a href="#days">行程</a>
+  <a href="#jr">JR</a>
+  <a href="#maps">导航</a>
+  <a href="#jp">日语</a>
+</div>
+
+<script>
+const startDate = new Date('2026-09-28T20:50:00+08:00').getTime();
+function updateCountdown(){
+  const el = document.getElementById('countdown');
+  const diff = startDate - Date.now();
+  if(diff <= 0){ el.textContent = '旅程已开始 ✈️'; return; }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  el.textContent = `距离出发还有 ${d} 天 ${h} 小时 ${m} 分钟`;
 }
-function renderChecklist(){
-  const el = document.getElementById('checklist');
-  el.innerHTML = checklist.map((item,idx)=>`<label><input type="checkbox" data-key="ck-${idx}"> <span>${item}</span></label>`).join('');
-  el.querySelectorAll('input').forEach(box=>{
-    const key = 'kyushu-v5-' + box.dataset.key;
-    box.checked = localStorage.getItem(key) === '1';
-    box.addEventListener('change', ()=>localStorage.setItem(key, box.checked ? '1' : '0'));
-  });
-  const memo = document.getElementById('memo');
-  memo.value = localStorage.getItem('kyushu-v5-memo') || '';
-  memo.addEventListener('input', ()=>localStorage.setItem('kyushu-v5-memo', memo.value));
-}
+updateCountdown(); setInterval(updateCountdown, 60000);
 function copyText(id){
-  const txt = document.getElementById(id).innerText;
-  navigator.clipboard.writeText(txt).then(()=>{},()=>{});
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).then(()=>{},()=>{});
 }
-window.copyText = copyText;
-
-renderTransport(); renderDays(); renderPhrases(); renderChecklist(); updateTopCards();
-setInterval(updateTopCards,60000);
+const checks = document.querySelectorAll('#checklist input');
+checks.forEach((box, idx)=>{
+  const key = 'kyushu26-check-' + idx;
+  box.checked = localStorage.getItem(key) === '1';
+  box.addEventListener('change', ()=>localStorage.setItem(key, box.checked ? '1' : '0'));
+});
+const memo = document.getElementById('memo');
+memo.value = localStorage.getItem('kyushu26-memo') || '';
+memo.addEventListener('input', ()=>localStorage.setItem('kyushu26-memo', memo.value));
 </script>
 </body>
 </html>
